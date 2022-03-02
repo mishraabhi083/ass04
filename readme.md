@@ -1,5 +1,6 @@
 #structure
 
+```
 .
 ├── bin
 │   └── main
@@ -19,6 +20,7 @@
     ├── main.c
     ├── source.c
     └── stack.c
+```
 
 # To Run The program
 
