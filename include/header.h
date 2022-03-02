@@ -11,5 +11,5 @@
 
 // prototypes
 void writer(FILE* read,FILE* write,char* databuffer);
-int longestLineFinder(FILE* read,char *databuffer);
+int longestLineFinder(FILE* read);
 void getData(FILE* read);

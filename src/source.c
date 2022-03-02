@@ -5,34 +5,26 @@ void writer(FILE* read,FILE* write,char* databuffer){
         writer(read,write,(char *)malloc(MAXBUFFER*sizeof(char)));
         fputs(databuffer,write);
     }
-    
+
 }
 
+
 void getData(FILE* read){
-    rewind(read);
     char* databuffer = (char*)malloc(MAXBUFFER*sizeof(char));
     while(fgets(databuffer,MAXBUFFER,read)){
         printf("%s",databuffer);
     }
-    // garbage collection
-    if (databuffer)
-        free(databuffer);
-    return;
 }
 
-int longestLineFinder(FILE* read,char *databuffer){
-    int longest=-1;
-    char *line,*l;
-    int len=0;
-    rewind(read);
-    while((l = fgets(databuffer,MAXBUFFER,read))){
-        printf("%s",l);
-        if(strlen(l) > longest){
-            longest=strlen(l);
-            strcpy(l,line);
+int longestLineFinder(FILE* read){
+    ssize_t longest=-1;
+    char *line=NULL;
+    ssize_t SIZE=80;
+    ssize_t len=0;
+    while((len = getline(&line, &SIZE, read)) != -1){
+        if(len > longest){
+            longest=len;
         }
     }
-    printf("longest line : %s ",line);
-
     return longest;
 }
