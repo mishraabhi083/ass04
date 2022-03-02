@@ -19,6 +19,9 @@ $(OBJPATH)/source.o: $(SRCPATH)/source.c $(INCLUDEPATH)/header.h
 	mv source.o $(OBJPATH)/
 
 clear:
-	rm $(BINPATH)/main $(OBJPATH)/main.o $(OBJPATH)/source.o
+	rm $(BINPATH)/main $(OBJPATH)/main.o $(OBJPATH)/source.o ../files/new
 run:
 	${BINPATH}/./main
+out:
+	cd ../files/
+	touch new
